@@ -11,7 +11,7 @@ import java.util.UUID;
 public class Product {
     private String productId;
     private String productName;
-    private String productQuantity;
+    private int productQuantity;
 
     public Product(){
         this.productId = UUID.randomUUID().toString();
@@ -23,7 +23,7 @@ public class Product {
     public String getProductName(){
         return productName;
     }
-    public String getProductQuantity(){
+    public int getProductQuantity(){
         return  productQuantity;
     }
     public void setProductId(String productId){
@@ -32,7 +32,7 @@ public class Product {
     public void setProductName(String productName){
         this.productName = productName;
     }
-    public void setProductQuantity(String productQuantity){
+    public void setProductQuantity(int productQuantity){
         this.productQuantity = productQuantity;
     }
 }
