@@ -38,5 +38,8 @@ public class ProductRepository {
         }
         return null; // Produk tidak ditemukan
     }
+    public void deleteById(String id) {
+        productData.removeIf(product -> product.getProductId().equals(id));
+    }
 
 }
