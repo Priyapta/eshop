@@ -55,13 +55,6 @@ dependencies {
         }
     }
 
-tasks.register<Test>("functionalTest"){
-    description = "Runs the functional tests."
-    group = "verification"
 
-    filter{
-        includeTestsMatching("*FunctionalTest")
-    }
-}
 
 
