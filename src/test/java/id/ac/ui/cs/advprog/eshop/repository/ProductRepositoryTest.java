@@ -2,20 +2,26 @@ package id.ac.ui.cs.advprog.eshop.repository;
 
 
 import id.ac.ui.cs.advprog.eshop.model.Product;
+import id.ac.ui.cs.advprog.eshop.service.ProductService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
 public class ProductRepositoryTest {
     @InjectMocks
-    ProductRepository productRepository;
+    private ProductRepository productRepository;
+    private Product sampleProduct;
+
+
     @BeforeEach
     void setUp() {
 
@@ -64,5 +70,55 @@ public class ProductRepositoryTest {
         assertEquals(product2.getProductId(), savedProduct.getProductId());
         assertFalse(productIterator.hasNext());
 
+    }
+
+    @Test
+    void testUpdateProduct() {
+        productRepository = new ProductRepository();
+        sampleProduct = new Product();
+        sampleProduct.setProductName("Laptop");
+        sampleProduct.setProductQuantity(10);
+        productRepository.create(sampleProduct);
+        sampleProduct.setProductName("Gaming Laptop");
+        sampleProduct.setProductQuantity(15);
+
+        Product updatedProduct = productRepository.update(sampleProduct);
+        assertNotNull(updatedProduct);
+        assertEquals("Gaming Laptop", updatedProduct.getProductName());
+        assertEquals(15, updatedProduct.getProductQuantity());
+    }
+
+    @Test
+    void testUpdateProductNotFound() {
+        Product nonExistentProduct = new Product();
+        nonExistentProduct.setProductId(UUID.randomUUID().toString());
+        nonExistentProduct.setProductName("Tablet");
+        nonExistentProduct.setProductQuantity(7);
+
+        Product updatedProduct = productRepository.update(nonExistentProduct);
+        assertNull(updatedProduct);
+    }
+
+    @Test
+    void testDeleteProduct() {
+        productRepository = new ProductRepository();
+        sampleProduct = new Product();
+        sampleProduct.setProductName("Laptop");
+        sampleProduct.setProductQuantity(10);
+        productRepository.create(sampleProduct);
+        String idToDelete = sampleProduct.getProductId();
+        productRepository.deleteById(idToDelete);
+        assertNull(productRepository.findById(idToDelete));
+    }
+    @Test
+    void testDeleteProductNotFound() {
+        productRepository = new ProductRepository();
+        sampleProduct = new Product();
+        sampleProduct.setProductName("Laptop");
+        sampleProduct.setProductQuantity(10);
+        productRepository.create(sampleProduct);
+        String fakeId = UUID.randomUUID().toString();
+        productRepository.deleteById(fakeId);
+        assertNotNull(productRepository.findById(sampleProduct.getProductId())); // Pastikan produk asli masih ada
     }
 }
