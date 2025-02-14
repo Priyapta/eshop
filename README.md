@@ -3,8 +3,8 @@
 
 ## Reflection 1
 
-- untuk membuat sebuah clean code tentu harus teliti dalam membaca code dan melihat ulang ke codingan apakaah dari penamaan fungsi dan variabel sudah benar
-Biasanya yang sanagat terlihat dalam memakai  function karena dengan penggunaan funtion terlihat jelas apakah nama dari funtion kita sudah benar atau belum dalam memuhi aturan clean code
+- Untuk membuat sebuah clean code tentu harus teliti dalam membaca code dan melihat ulang ke codingan apakah dari penamaan fungsi dan variabel sudah benar.
+Biasanya yang sangat terlihat dalam memakai  function karena dengan penggunaan function terlihat jelas apakah nama dari function kita sudah benar atau belum dalam memenuhi aturan clean code
 
 ## Reflection 2
 
@@ -18,4 +18,4 @@ Biasanya yang sanagat terlihat dalam memakai  function karena dengan penggunaan 
 
 ### After writing the CreateProductFunctionalTest.java
 
-- Mengulang kode yang sama dalam functional test dapat menurunkan kualitas kode dengan meningkatkan redundansi, mengurangi keterbacaan, serta memperumit pemeliharaan. Selain itu, hal ini juga melanggar prinsip Don't Repeat Yourself (DRY). Untuk menjaga kebersihan kode, kita dapat menggunakan pendekatan seperti membuat superclass abstrak yang menangani setup umum dalam pengujian. Dengan cara ini, duplikasi kode dapat dikurangi, sehingga kode tetap terstruktur, mudah dibaca, dan lebih mudah dipelihara.
+- Mengulang kode yang sama dalam functional test dapat menurunkan kualitas kode dengan meningkatkan redundansi, mengurangi keterbacaan, serta memperumit pemeliharaan. Selain itu, hal ini juga melanggar prinsip Don't Repeat Yourself (DRY). Untuk menjaga kebersihan kode, kita dapat menggunakan pendekatan seperti membuat superclass abstrak yang menangani setup umum dalam pengujian. Dengan cara ini, duplikasi kode dapat dikurangi sehingga kode tetap terstruktur, mudah dibaca, dan lebih mudah dipelihara.
