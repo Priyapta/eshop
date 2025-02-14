@@ -119,6 +119,6 @@ public class ProductRepositoryTest {
         productRepository.create(sampleProduct);
         String fakeId = UUID.randomUUID().toString();
         productRepository.deleteById(fakeId);
-        assertNotNull(productRepository.findById(sampleProduct.getProductId())); // Pastikan produk asli masih ada
+        assertNotNull(productRepository.findById(sampleProduct.getProductId()));
     }
 }
