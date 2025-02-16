@@ -11,6 +11,7 @@ jobs:
     steps:
       - name: Check out Git repository
         uses: actions/checkout@v4
+        
       - name: Set up Java toolchain
         uses: actions/setup-java@v4
         with:
@@ -19,4 +20,5 @@ jobs:
           cache: "gradle"
       - name: Run unit tests
         run: ./gradlew test
-
+      - name: Grant execute permission to Gradle wrapper
+        run: chmod +x gradlew
