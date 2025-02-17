@@ -40,7 +40,7 @@ public class ProductController {
         try{
             Product product = service.findById(id);
             if (product == null) { // Pastikan produk ditemukan
-                System.out.println("Product with ID " + id + " not found.");
+
                 return "redirect:/product/list";
             }
 
@@ -49,7 +49,7 @@ public class ProductController {
 
         }
         catch (Exception e) {
-            System.out.println("Error"+ e.getMessage());
+
             return  "redirect:/product/list";
         }
     }
