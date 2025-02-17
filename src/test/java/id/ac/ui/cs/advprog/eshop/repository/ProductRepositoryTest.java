@@ -121,4 +121,24 @@ public class ProductRepositoryTest {
         productRepository.deleteById(fakeId);
         assertNotNull(productRepository.findById(sampleProduct.getProductId()));
     }
+
+    @Test
+    void testFindByIdNonExisting() {
+        Product foundProduct = productRepository.findById("999");
+        assertNull(foundProduct);
+    }
+
+    @Test
+    void testFindByIdExisting() {
+        Product product = new Product();
+        product.setProductId("eb558e9f-1c39-460e-8860-71af6af63bd6");
+        product.setProductName("Sampo Cap Bambang");
+        product.setProductQuantity(100);
+
+        productRepository.create(product);
+        Product foundProduct = productRepository.findById("1");
+        assertNotNull(foundProduct);
+        assertEquals("Laptop", foundProduct.getProductName());
+    }
+
 }
