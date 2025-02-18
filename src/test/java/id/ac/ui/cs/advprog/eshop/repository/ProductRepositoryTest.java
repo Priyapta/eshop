@@ -156,7 +156,7 @@ public class ProductRepositoryTest {
     @Test
     void testFindByIdExisting() {
         Product product = new Product();
-        product.setProductId("eb558e9f-1c39-460e-8860-71af6af63bd6");
+        product.setProductId("eb558e9f-1c39-460e-8860-71af6af63bd");
         product.setProductName("Sampo Cap Bambang");
         product.setProductQuantity(100);
 
