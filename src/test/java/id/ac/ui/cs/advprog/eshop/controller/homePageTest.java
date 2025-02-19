@@ -32,6 +32,6 @@ class HomepageControllerTest { // Nama kelas diubah ke PascalCase
         String viewName = homepageController.createProductPage(model);
 
         // Assert
-        assertEquals("homePage", viewName);
+        assertEquals("Homepage", viewName);
     }
 }

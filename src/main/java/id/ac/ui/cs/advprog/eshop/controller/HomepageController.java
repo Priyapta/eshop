@@ -13,7 +13,7 @@ public class HomepageController {
 
     @GetMapping("/")
     public String createProductPage(Model model) {
-        return "homePage";
+        return "Homepage";
 
     }
 
