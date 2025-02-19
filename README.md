@@ -4,8 +4,8 @@
 
 ## Reflection 1
 - Untuk memperbaiki kualitas kode pertama - tama melihat di report yang sudah disediakan oleh jacoco test dan terlihat detail mana saja code yang belum terkena unit test. Untuk menaikan kualitas pada kode tentu dengan mencoba function apa saja yang telah saya buat untuk membangun aplikasi eshop. Selalu memperhatikan report ketika sudah memperbaiki kualitas kode dan dilihat apakah sudah naik atau belum, jika belum tentu harus memperbaiki unit test yang baru saya buat untuk memenuhi kondisi code saya. 
-<details>
-  <sumarry>Draft</sumarry>
+
+<sumarry>Draft</sumarry>
   ## Reflection 1
 
 - Untuk membuat sebuah clean code tentu harus teliti dalam membaca code dan melihat ulang ke codingan apakah dari penamaan fungsi dan variabel sudah benar.
@@ -26,4 +26,4 @@ Biasanya yang sangat terlihat dalam memakai  function karena dengan penggunaan f
 - Mengulang kode yang sama dalam functional test dapat menurunkan kualitas kode dengan meningkatkan redundansi, mengurangi keterbacaan, serta memperumit pemeliharaan. Selain itu, hal ini juga melanggar prinsip Don't Repeat Yourself (DRY). Untuk menjaga kebersihan kode, kita dapat menggunakan pendekatan seperti membuat superclass abstrak yang menangani setup umum dalam pengujian. Dengan cara ini, duplikasi kode dapat dikurangi sehingga kode tetap terstruktur, mudah dibaca, dan lebih mudah dipelihara.
 
 
-  <details>
+
