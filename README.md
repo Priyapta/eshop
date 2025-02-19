@@ -5,7 +5,7 @@
 ## Reflection 1
 - Untuk memperbaiki kualitas kode pertama - tama melihat di report yang sudah disediakan oleh jacoco test dan terlihat detail mana saja code yang belum terkena unit test. Untuk menaikan kualitas pada kode tentu dengan mencoba function apa saja yang telah saya buat untuk membangun aplikasi eshop. Selalu memperhatikan report ketika sudah memperbaiki kualitas kode dan dilihat apakah sudah naik atau belum, jika belum tentu harus memperbaiki unit test yang baru saya buat untuk memenuhi kondisi code saya. 
 <details>
-<sumarry>Draft</sumarry>
+<sumarry><strong>Draft</strong></sumarry>
   ## Reflection 1
 
 - Untuk membuat sebuah clean code tentu harus teliti dalam membaca code dan melihat ulang ke codingan apakah dari penamaan fungsi dan variabel sudah benar.
