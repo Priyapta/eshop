@@ -1,9 +1,17 @@
 # Eshop
 ### Priyapta Naufal Sudrajat 2306245106
+[![Continuous Integration (CI)](https://github.com/Priyapta/eshop/actions/workflows/ci.yml/badge.svg)](https://github.com/Priyapta/eshop/actions/workflows/ci.yml)
 
+## Week 2 Reflection
+### Reflection 1
+Terkait improvement code quality:
+1. Menambah protect Branches dimana saya harus mereview code sebelum di merge ke main dan Menghindari force delete terhadap master branch saya
+2. Menambahkan workflow berupa dependency update tool (Dependabot) untuk mendeteksi dependencies yang out-of-date.
 
-## Reflection 1
-- Untuk memperbaiki kualitas kode pertama - tama melihat di report yang sudah disediakan oleh jacoco test dan terlihat detail mana saja code yang belum terkena unit test. Untuk menaikan kualitas pada kode tentu dengan mencoba function apa saja yang telah saya buat untuk membangun aplikasi eshop. Selalu memperhatikan report ketika sudah memperbaiki kualitas kode dan dilihat apakah sudah naik atau belum, jika belum tentu harus memperbaiki unit test yang baru saya buat untuk memenuhi kondisi code saya.
+Saya telah menerapkan CI/CD menggunakan GitHub Actions dan Koyeb, yang memenuhi definisi Continuous Integration dan Continuous Deployment.
+
+- Continuous Integration: Build dan testing otomatis menggunaka OSSF Scorecard, PMD, dan JaCoCo (Unit Test).
+- Continuous Deployment: Deployment otomatis ke Koyeb setiap push ke master, dengan Dockerfile untuk fleksibilitas lingkungan deployment.
 
 ## Draft
 <details>
