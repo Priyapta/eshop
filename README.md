@@ -3,9 +3,11 @@
 
 
 ## Reflection 1
-- Untuk memperbaiki kualitas kode pertama - tama melihat di report yang sudah disediakan oleh jacoco test dan terlihat detail mana saja code yang belum terkena unit test. Untuk menaikan kualitas pada kode tentu dengan mencoba function apa saja yang telah saya buat untuk membangun aplikasi eshop. Selalu memperhatikan report ketika sudah memperbaiki kualitas kode dan dilihat apakah sudah naik atau belum, jika belum tentu harus memperbaiki unit test yang baru saya buat untuk memenuhi kondisi code saya. 
+- Untuk memperbaiki kualitas kode pertama - tama melihat di report yang sudah disediakan oleh jacoco test dan terlihat detail mana saja code yang belum terkena unit test. Untuk menaikan kualitas pada kode tentu dengan mencoba function apa saja yang telah saya buat untuk membangun aplikasi eshop. Selalu memperhatikan report ketika sudah memperbaiki kualitas kode dan dilihat apakah sudah naik atau belum, jika belum tentu harus memperbaiki unit test yang baru saya buat untuk memenuhi kondisi code saya.
+
+## Draft
 <details>
-<summary><strong>Draft</strong></summary>
+<summary><strong>Tutorial 1</strong></summary>
   
 ## Reflection 1
 
