@@ -5,6 +5,6 @@ import lombok.Setter;
 public class Car {
     private String carId;
     private String carName;
-    private String carModel;
+    private String carColor;
     private int carQuantity;
 }
