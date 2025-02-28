@@ -2,16 +2,27 @@
 ### Priyapta Naufal Sudrajat 2306245106
 [![Continuous Integration (CI)](https://github.com/Priyapta/eshop/actions/workflows/ci.yml/badge.svg)](https://github.com/Priyapta/eshop/actions/workflows/ci.yml)
 
-## Week 2 Reflection
-### Reflection 1
-Terkait improvement code quality:
-1. Menambah protect Branches dimana saya harus mereview code sebelum di merge ke main dan Menghindari force delete terhadap master branch saya
-2. Menambahkan workflow berupa dependency update tool (Dependabot) untuk mendeteksi dependencies yang out-of-date.
-
-Saya telah menerapkan CI/CD menggunakan GitHub Actions dan Koyeb, yang memenuhi definisi Continuous Integration dan Continuous Deployment.
-
-- Continuous Integration: Build dan testing otomatis menggunaka OSSF Scorecard, PMD, dan JaCoCo (Unit Test).
-- Continuous Deployment: Deployment otomatis ke Koyeb setiap push ke master, dengan Dockerfile untuk fleksibilitas lingkungan deployment.
+## Week 3 Reflection
+### Principles Applied to the Project
+1. Single Responsibility Principle 
+    - Dalam mengimplementasi aturan ini dilihat dari controller bahwa class controller sudah memakai aturan ini
+2. Open Closed Principle 
+    - Menggunakan antar muka `CarService` yang diimplemetasikan terhadap `CarServiceimpl`
+3. Liskov Subtitution
+    - Subkelas dapat menggantikan superclass mereka tanpa mengganggu fungsionalitas program. Misalnya, setiap implementasi `CarService` dapat digunakan di mana saja `CarService` diperlukan tanpa mempengaruhi logika aplikasi.
+    - Memastikan bahwa setiap implementasi `CarService` dapat digunakan secara  tanpa mempengaruhi logika aplikasi. Contohnya, `CarServiceImpl` yang dapat menginherit function dari sebuah interface `CarService`
+4. Interface Segregation Principle (ISP)
+    - Menghindari dependensi yang tidak perlu dengan memastikan hanya kelas tertentu bergantun pada interface yang dibutuhkan. Contoh pada `CarServiceimpl` dimana hanya method-method tertentu yang diimplementasikan relevan terhadap kelas ini.
+5  Dependency Inversion Principle (DIP)
+    - Mengubah instance langsung dari `CarServiceImpl` dalam controller dengan interface `CarService`. Dengan cara ini maka hanya bergantung pada abstraksi bukan implementasi spesifik sehingga lebih mudah dalam pengetesan.
+### Explain the advantages of applying SOLID principles to your project with examples
+1. Maintainability yang Lebih Baik : Dengan SRP, kode lebih bersih dan terorganisir. Setiap perubahan hanya perlu dilakukan di satu tempat tanpa mengganggu bagian lain.
+2. Kemudahan dalam Pengembangan dan Ekstensi : OCP memastikan bahwa fitur baru dapat ditambahkan tanpa merusak kode lama. Jika saya ingin menambahkan model atau fitur baru, saya cukup membuat subclass atau meng-extend yang sudah ada.
+3. Pewarisan yang Lebih Aman dan Stabil : LSP memastikan bahwa subclass bisa menggantikan superclass tanpa masalah. Ini mencegah bug akibat perilaku yang tidak sesuai ketika pewarisan digunakan.
+### Explain the disadvantages of not applying SOLID principles to your project with examples
+1. Kode Sulit dipelihara: Dimana jika menggunakan SOLID kode lebih terstuktur dan lebih rapih dan tentu mudah dibaca yang mana jika bekerja pada proyek yang besar dimenyulitkan programmer dalam membaca kode mereka ataupun kode orang lain
+2. Tanpa prinsip seperti Open/Closed Principle (terbuka untuk ekstensi, tertutup untuk modifikasi), penambahan fitur baru menjadi lebih sulit dan berisiko. Setiap perubahan sering kali memerlukan modifikasi langsung pada kode yang sudah ada, yang dapat mengganggu stabilitas sistem dan meningkatkan kemungkinan munculnya bug.
+3. Perubahan Kecil dalam menyebabkan error di banyak tempat dimananya sedikitnya penggunaan if else condition sehingga dapat mengurangi kesalahan pada logic.
 
 ## Draft
 <details>
@@ -37,4 +48,24 @@ Biasanya yang sangat terlihat dalam memakai  function karena dengan penggunaan f
 - Mengulang kode yang sama dalam functional test dapat menurunkan kualitas kode dengan meningkatkan redundansi, mengurangi keterbacaan, serta memperumit pemeliharaan. Selain itu, hal ini juga melanggar prinsip Don't Repeat Yourself (DRY). Untuk menjaga kebersihan kode, kita dapat menggunakan pendekatan seperti membuat superclass abstrak yang menangani setup umum dalam pengujian. Dengan cara ini, duplikasi kode dapat dikurangi sehingga kode tetap terstruktur, mudah dibaca, dan lebih mudah dipelihara.
 
 </details>
+
+<details> 
+
+<summary><strong>Tutorial 2</strong></summary>
+
+## Week 2 Reflection
+### Reflection 1
+
+Terkait improvement code quality:
+1. Menambah protect Branches dimana saya harus mereview code sebelum di merge ke main dan Menghindari force delete terhadap master branch saya
+2. Menambahkan workflow berupa dependency update tool (Dependabot) untuk mendeteksi dependencies yang out-of-date.
+
+Saya telah menerapkan CI/CD menggunakan GitHub Actions dan Koyeb, yang memenuhi definisi Continuous Integration dan Continuous Deployment.
+
+- Continuous Integration: Build dan testing otomatis menggunaka OSSF Scorecard, PMD, dan JaCoCo (Unit Test).
+- Continuous Deployment: Deployment otomatis ke Koyeb setiap push ke master, dengan Dockerfile untuk fleksibilitas lingkungan deployment.
+
+
+</details>
+
 
