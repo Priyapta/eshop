@@ -13,8 +13,9 @@
     - Memastikan bahwa setiap implementasi `CarService` dapat digunakan secara  tanpa mempengaruhi logika aplikasi. Contohnya, `CarServiceImpl` yang dapat menginherit function dari sebuah interface `CarService`
 4. Interface Segregation Principle (ISP)
     - Menghindari dependensi yang tidak perlu dengan memastikan hanya kelas tertentu bergantun pada interface yang dibutuhkan. Contoh pada `CarServiceimpl` dimana hanya method-method tertentu yang diimplementasikan relevan terhadap kelas ini.
-5  Dependency Inversion Principle (DIP)
+5. Dependency Inversion Principle (DIP)
     - Mengubah instance langsung dari `CarServiceImpl` dalam controller dengan interface `CarService`. Dengan cara ini maka hanya bergantung pada abstraksi bukan implementasi spesifik sehingga lebih mudah dalam pengetesan.
+
 ### Explain the advantages of applying SOLID principles to your project with examples
 1. Maintainability yang Lebih Baik : Dengan SRP, kode lebih bersih dan terorganisir. Setiap perubahan hanya perlu dilakukan di satu tempat tanpa mengganggu bagian lain.
 2. Kemudahan dalam Pengembangan dan Ekstensi : OCP memastikan bahwa fitur baru dapat ditambahkan tanpa merusak kode lama. Jika saya ingin menambahkan model atau fitur baru, saya cukup membuat subclass atau meng-extend yang sudah ada.
