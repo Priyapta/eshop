@@ -23,7 +23,7 @@ public class PaymentTest {
     void setUp() {
         this.products = new ArrayList<>();
         this.voucherDetails = new HashMap<>();
-        voucherDetails.put("voucherCode", "ESHOP1234ABC5678");
+        voucherDetails.put("voucherCode", "ESHOP12345678XYZ");
         this.bankDetails = new HashMap<>();
         bankDetails.put("bankName", "Pemuda");
         bankDetails.put("referenceCode", "ABC123456789");
@@ -70,18 +70,21 @@ public class PaymentTest {
                 assertEquals("REJECTED",payment.getStatus());
 
 
+
                 },
                 () -> {
                     Map<String, String> invalidVoucherPrefix = new HashMap<>();
                     invalidVoucherPrefix.put("voucherCode", "7777777777777777");
                     Payment payment = new Payment("VOUCHER", invalidVoucherPrefix, this.customerOrder);
                     assertEquals("REJECTED", payment.getStatus());
+
                 },
                 () -> {
                     Map<String, String> invalidVoucherNumbers = new HashMap<>();
                     invalidVoucherNumbers.put("voucherCode", "ESHOP9999XYZAXWY");
                     Payment payment = new Payment("VOUCHER", invalidVoucherNumbers, this.customerOrder);
                     assertEquals("REJECTED", payment.getStatus());
+                    System.out.println(payment.getStatus());
                 },
                 () -> {
                     Map<String, String> invalidVoucherLength = new HashMap<>();
@@ -98,7 +101,7 @@ public class PaymentTest {
                     Map<String,String> invalidBank = new HashMap <> ();
                     invalidBank.put("bankName",null);
                     invalidBank.put("referenceCode","ABC123456789");
-                    Payment payment = new Payment("Bank", invalidVoucherCode, this.customerOrder);
+                    Payment payment = new Payment("BANK", invalidBank, this.customerOrder);
                     assertEquals("REJECTED", payment.getStatus());
 
 
@@ -107,14 +110,14 @@ public class PaymentTest {
                     Map<String,String> invalidBank = new HashMap <> ();
                     invalidBank.put("bankName","Mandiri");
                     invalidBank.put("referenceCode","");
-                    Payment payment = new Payment("Bank", invalidVoucherCode, this.customerOrder);
+                    Payment payment = new Payment("BANK", invalidBank, this.customerOrder);
                     assertEquals("REJECTED", payment.getStatus());
                 },
                 () -> {
                     Map<String,String> invalidBank = new HashMap <> ();
                     invalidBank.put("bankName",null);
                     invalidBank.put("referenceCode",null);
-                    Payment payment = new Payment("Bank", invalidVoucherCode, this.customerOrder);
+                    Payment payment = new Payment("BANK", invalidBank, this.customerOrder);
                     assertEquals("REJECTED", payment.getStatus());
                 }
 
@@ -145,17 +148,19 @@ public class PaymentTest {
         assertAll(
                 () -> {
                     Payment voucherPayment = new Payment("VOUCHER", this.voucherDetails, this.customerOrder);
+
                     assertEquals("SUCCESS", voucherPayment.getStatus());
                     assertSame(this.voucherDetails, voucherPayment.getPaymentData());
                     assertSame(this.customerOrder, voucherPayment.getOrder());
                     assertNotNull(voucherPayment.getId());
+
                 },
                 () -> {
-                    Payment codPayment = new Payment("Bank", this.bankDetails, this.customerOrder);
-                    assertEquals("SUCCESS", codPayment.getStatus());
-                    assertSame(this.bankDetails, codPayment.getPaymentData());
-                    assertSame(this.customerOrder, codPayment.getOrder());
-                    assertNotNull(codPayment.getId());
+                    Payment bankPayment = new Payment("BANK", this.bankDetails, this.customerOrder);
+                    assertEquals("SUCCESS", bankPayment.getStatus());
+                    assertSame(this.bankDetails, bankPayment.getPaymentData());
+                    assertSame(this.customerOrder, bankPayment.getOrder());
+                    assertNotNull(bankPayment.getId());
                 }
         );
     }
