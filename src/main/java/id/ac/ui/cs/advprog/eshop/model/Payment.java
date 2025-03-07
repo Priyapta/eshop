@@ -1,5 +1,7 @@
 package id.ac.ui.cs.advprog.eshop.model;
 
+import id.ac.ui.cs.advprog.eshop.enums.PaymentMethod;
+import id.ac.ui.cs.advprog.eshop.enums.PaymentStatus;
 import lombok.Getter;
 
 import java.util.Arrays;
@@ -23,8 +25,8 @@ public class Payment {
             throw new NullPointerException("Payment data tidak boleh null");
         }
 
-        List<String> validMethods = Arrays.asList("VOUCHER", "BANK");
-        if (!validMethods.contains(method)) {
+
+        if (!PaymentMethod.contains(method)) {
             throw new IllegalArgumentException("Metode pembayaran tidak valid: " + method);
         }
 
@@ -32,15 +34,15 @@ public class Payment {
         this.method = method;
         this.paymentData = paymentData;
         this.order = order;
-        this.status = "SUCCESS"; // Status default
+        this.status = PaymentStatus.SUCCESS.getValue(); // Status default
 
         validatePaymentData();
     }
 
     private void validatePaymentData() {
-        if (this.method.equals("VOUCHER")) {
+        if (this.method.equals(PaymentMethod.VOUCHER.getValue())) {
             validateVoucherPayment();
-        } else if (this.method.equals("BANK")) {
+        } else if (this.method.equals(PaymentMethod.BANK.getValue())) {
             validateBankPayment();
         }
     }
@@ -50,7 +52,7 @@ public class Payment {
         String voucherCode = paymentData.get("voucherCode");
 
         if (voucherCode == null || voucherCode.length() != 16 || !voucherCode.startsWith("ESHOP")) {
-            this.status = "REJECTED";
+            this.status = PaymentStatus.REJECTED.getValue();
             return;
         }
 
@@ -62,7 +64,7 @@ public class Payment {
         }
 
         if (digitCount != 8) {
-            this.status = "REJECTED";
+            this.status = PaymentStatus.REJECTED.getValue();
         }
 
     }
@@ -74,9 +76,9 @@ public class Payment {
         String referenceCode = paymentData.get("referenceCode");
 
         if (bankName == null || referenceCode == null || referenceCode.trim().isEmpty()) {
-            this.status = "REJECTED";
+            this.status = PaymentStatus.REJECTED.getValue();
         } else {
-            this.status = "SUCCESS";
+            this.status = PaymentStatus.SUCCESS.getValue();
         }
     }
 
