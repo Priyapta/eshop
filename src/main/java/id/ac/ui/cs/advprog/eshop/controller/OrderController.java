@@ -1,12 +1,10 @@
 package id.ac.ui.cs.advprog.eshop.controller;
 import id.ac.ui.cs.advprog.eshop.model.Order;
-import id.ac.ui.cs.advprog.eshop.model.Payment;
 import id.ac.ui.cs.advprog.eshop.model.Product;
 import id.ac.ui.cs.advprog.eshop.service.OrderService;
 import id.ac.ui.cs.advprog.eshop.service.PaymentService;
 import id.ac.ui.cs.advprog.eshop.service.ProductService;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -62,15 +60,13 @@ public class OrderController {
         return "redirect:/order/pay/" + savedOrder.getId();
     }
 
-    @GetMapping("/history")
-    public String orderHistoryForm() {
-        return "OrderHistoryForm";
-    }
+
+
     @GetMapping("/pay/{orderId}")
     public String payOrderPage(@PathVariable String orderId, Model model) {
         Order order = orderService.findById(orderId);
         if (order == null) {
-            return "redirect:/order/history?error=orderNotFound";
+            return "redirect:/order/pay/{orderId}?error=missingPaymentMethod";
         }
         model.addAttribute("order", order);
         return "OrderPayment";
@@ -80,7 +76,7 @@ public class OrderController {
     public String processPayment(@PathVariable String orderId, @RequestParam("paymentMethod") String paymentMethod, Model model) {
         Order order = orderService.findById(orderId);
         if (order == null) {
-            return "redirect:/order/history?error=orderNotFound";
+            return "redirect:/order/pay/{orderId}?error=missingPaymentMethod";
         }
 
         Map<String, String> paymentData = new HashMap<>();

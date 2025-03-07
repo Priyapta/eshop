@@ -32,7 +32,7 @@
     <div class="card">
         <div class="card-header">Order Details</div>
         <div class="card-body">
-            <p>Order ID: <span th:text="${order.id}"></span></p>
+            <p>Order ID: <span id="orderId" th:text="${order.id}" ></span></p>
             <p>Author: <span th:text="${order.author}"></span></p>
             <p>Order Time: <span th:text="${#dates.format(order.orderTime, 'yyyy-MM-dd HH:mm:ss')}"></span></p>
             <h4>Products</h4>
@@ -113,14 +113,26 @@
 
 
         function togglePaymentDetails() {
+            const voucherRadio = document.getElementById("voucher");
+            const bankRadio = document.getElementById("bank");
+            const voucherCode = document.getElementById("voucherCode");
+            const bankName = document.getElementById("bankName");
+            const referenceCode = document.getElementById("referenceCode");
+
             if (voucherRadio.checked) {
-                voucherDetails.style.display = 'block';
-                bankDetails.style.display = 'none';
-                validateVoucherCode();
+                document.getElementById("voucherDetails").style.display = "block";
+                document.getElementById("bankDetails").style.display = "none";
+
+                voucherCode.setAttribute("required", "true");
+                bankName.removeAttribute("required");
+                referenceCode.removeAttribute("required");
             } else if (bankRadio.checked) {
-                voucherDetails.style.display = 'none';
-                bankDetails.style.display = 'block';
-                validateBankDetails();
+                document.getElementById("voucherDetails").style.display = "none";
+                document.getElementById("bankDetails").style.display = "block";
+
+                voucherCode.removeAttribute("required");
+                bankName.setAttribute("required", "true");
+                referenceCode.setAttribute("required", "true");
             }
         }
 
@@ -142,6 +154,7 @@
             }
         }
 
+
         function validateBankDetails() {
             const nameValue = bankName.value.trim();
             const refValue = referenceCode.value.trim();
@@ -150,13 +163,19 @@
             submitPayment.disabled = !isValid;
         }
 
+
+
+
         voucherRadio.addEventListener('change', togglePaymentDetails);
         bankRadio.addEventListener('change', togglePaymentDetails);
         voucherCode.addEventListener('input', validateVoucherCode);
         bankName.addEventListener('input', validateBankDetails);
         referenceCode.addEventListener('input', validateBankDetails);
 
+
         togglePaymentDetails();
+        // paymentForm.addEventListener('submit', processPayment);
+
     });
 </script>
 </body>
